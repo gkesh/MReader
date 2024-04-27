@@ -10,10 +10,12 @@ interface Props {
 const { href, color } = Astro.props as Props;
 ---
 <button onclick={`location.href='${href}'`} style={`color: ${color}`}>
-    <FaIcon
-        color={color}
-        size="20 20"
-        draw={arrowLeft} />
+    <span>
+        <FaIcon
+            color={color}
+            size="20 20"
+            draw={arrowLeft} />
+    </span>
     <span>Back</span>
 </button>
 
@@ -30,7 +32,24 @@ button {
     padding: 0 !important;
     @extend .flex-centered;
 
-    span {
+    &:hover span:first-of-type {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    span:first-of-type {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s linear;
+        -o-transition: all 0.5s linear;
+        -moz-transition: all 0.5s linear;
+        -webkit-transition: all 0.5s linear;
+    }
+
+    span:last-of-type {
         padding-left: 0.8rem;
     }
 

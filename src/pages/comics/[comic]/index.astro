@@ -1,8 +1,11 @@
 ---
-// Components
+// Fragments
 import Base from '../../../layouts/Base.astro';
 import Backton from '../../../fragments/Backton.astro';
 import Fabton from '../../../fragments/Fabton.astro';
+
+// Components
+import Downloader from '../../../components/Downloader.vue';
 
 // Queries
 import { gqlFetch } from '../../../graphql/client';
@@ -78,7 +81,10 @@ const synopsis = data.synopsis;
                 <p>No chapters downloaded &nbsp; <span>:(</span></p>
             }
         </section>
-        <div>
+        <section class="popup">
+            <Downloader />
+        </section>
+        <div onclick="">
             <Fabton icon={download} />
         </div>
     </main>
